@@ -50,20 +50,22 @@ void setup() {
 }
 
 void loop() {
-  if(digitalRead(3) == 0)
-    srv.write(45);Show("45");
-  if(digitalRead(4) == 0)
-    srv.write(90);Show("90");
-  if(digitalRead(5) == 0)
-    srv.write(135);Show("135");
-  if(digitalRead(6) == 0)
-    srv.write(180);Show("180");
+  String number = "";
+  if(digitalRead(3) == 0){
+    srv.write(45); number = "45";}
+  if(digitalRead(4) == 0){
+    srv.write(90); number = "90";}
+  if(digitalRead(5) == 0){
+    srv.write(135); number = "135";}
+  if(digitalRead(6) == 0){
+    srv.write(180); number = "180";}
   
   if(digitalRead(3) == 1 && digitalRead(4) == 1 && digitalRead(5) == 1 && digitalRead(6) == 1)
     srv.write(0);
 
+  Show(number);
 
-  delay(10);
+  delay(100);
   yield();
   display.display();
 }
